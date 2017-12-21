@@ -7,15 +7,16 @@ $post_cmd_file = '/tmp/' . $_name . "_post_cmd";
 # Client
 # add to cron task
 if ($sapi == 'cli') {
-    $minutes = 60;
-    while ($minutes--) {
-        var_dump($minutes);
-        if (!file_exists($flag_file)) {
+    while (true) {
+        if (!file_exists($flag_file) and !file_exists($post_cmd_file)) {
             sleep(1);
             continue;
         }
-        system('git pull');
-        @unlink($flag_file);
+
+        if (file_exists($flag_file)) {
+            system('git pull');
+            @unlink($flag_file);
+        }
 
         if (file_exists($post_cmd_file)) {
             system('php artisan cache:clear');
@@ -24,7 +25,6 @@ if ($sapi == 'cli') {
             system('composer dumpauto');
             @unlink($post_cmd_file);
         }
-        exit(0);
     }
 }
 
