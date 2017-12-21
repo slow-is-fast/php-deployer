@@ -7,7 +7,7 @@ do
 	if [ $main_counts -lt 1 ]
 		then
 		echo "not found"
-		`cd $DIR;f nohup php deploy.php > /dev/null &`
+		`cd $DIR; nohup php deploy.php > /dev/null &`
 	fi
 	echo $count
 	sleep 1
