@@ -4,7 +4,7 @@ A Minimum Viable Product (MVP) version
 
 ## add crontab task
 ```shell
-* * * * * php /path/to/deploy.php
+* * * * * bash /path/to/keep.sh
 ```
 
 ## add git push hook / svn commit hook
