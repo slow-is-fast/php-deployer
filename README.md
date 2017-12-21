@@ -2,8 +2,9 @@
 
 A Minimum Viable Product (MVP) version
 
-- add crontab task
+## add crontab task
+```shell
 * * * * * php /path/to/deploy.php
 
-- add git push hook / svn commit hook
+## add git push hook / svn commit hook
 curl http://yoursite/path/deploy.php
